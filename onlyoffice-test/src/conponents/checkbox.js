@@ -4,10 +4,12 @@ import {StyledDiv} from '../App'
 
 
 const StyledInput = styled.input`
-display: inline-block;
+  display: ${props=>props.enabled ? 'inline-block':'none'};
+  /* display: inline-block; */
 `;
 const StyledP = styled.p`
-display: inline-block;
+  display: ${props=>props.enabled ? 'inline-block':'none'};
+  /* display: inline-block; */
 `
 
 class Checkbox extends Component {
@@ -17,10 +19,17 @@ class Checkbox extends Component {
   }
     
   render() {
-    let {text} = this.props;
+    let {text,type,checked,enabled,onChange} = this.props;
+    // let {checked}= this.state;
     return (
       <StyledDiv>
-        <StyledInput type="checkbox" /><StyledP>{text}</StyledP>
+        <StyledInput 
+              type="checkbox" 
+              checked={checked}
+              enabled={enabled}
+              onChange={()=>onChange(type)}
+        />
+          <StyledP enabled={enabled}>{text}</StyledP>
       </StyledDiv>
     )
   }

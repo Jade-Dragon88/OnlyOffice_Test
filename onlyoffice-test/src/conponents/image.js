@@ -10,6 +10,7 @@ const StyledDivImg = styled.div`
 `;
 
 const StyledImage = styled.img`
+  display: ${props=>props.enabled ? 'block':'none'};
   height: auto;
   width: 100%;
 `;
@@ -20,10 +21,10 @@ class Image extends Component {
     this.state = {}
   }
   render() {
-    var {src} = this.props;
+    var {enabled,src} = this.props;
     return (
       <StyledDivImg>
-        <StyledImage src={src}/>
+        <StyledImage enabled={enabled} src={src}/>
       </StyledDivImg>
     )
   }
