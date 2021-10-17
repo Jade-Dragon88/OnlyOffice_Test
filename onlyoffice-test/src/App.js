@@ -1,3 +1,4 @@
+import React, { Component } from 'react'
 import './App.css';
 import Checkbox from './conponents/checkbox'
 import Button from './conponents/button'
@@ -8,14 +9,21 @@ export const StyledDiv = styled.div`
   margin: 0 auto;
   text-align: left;
 `
-function App() {
-  return (
-    <div className="App">
-      <Checkbox text='Enabled'/>
-      <Checkbox text='Auto-refresh every 5 second'/>
-      <Button/>
-    </div>
-  );
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {}
+  }
+  render() {
+    return (
+      <div className="App">
+        <Checkbox text='Enabled'/>
+        <Checkbox text='Auto-refresh every 5 second'/>
+        <Button/>
+      </div>
+    )
+  }
 }
 
 export default App;
